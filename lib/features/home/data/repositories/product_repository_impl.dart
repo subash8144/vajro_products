@@ -19,6 +19,7 @@ class ProductRepositoryImpl implements ProductRepository {
         final endIndex = startIndex + AppConstants.pageSize;
         final response = await ApiService().get(endpoint: AppConstants.productsEndpoint);
         Product product = Product.fromJson(response);
+        await storeProductsLocal(product);
         final jsonList = product.articles;
         List<Articles>? paginatedList = jsonList?.sublist(
           0,

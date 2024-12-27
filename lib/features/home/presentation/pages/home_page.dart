@@ -103,6 +103,7 @@ class _HomeViewState extends State<HomeView> {
               child: Scrollbar(
                 thumbVisibility: true,
                 thickness: 8.0,
+                controller: _scrollController,
                 radius: const Radius.circular(10),
                 child: ListView.builder(
                   controller: _scrollController,
