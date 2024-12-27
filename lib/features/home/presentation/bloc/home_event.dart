@@ -9,9 +9,16 @@ abstract class HomeEvent extends Equatable {
 
 class FetchProducts extends HomeEvent {
   final int page;
+  final bool isInitial;
 
-  const FetchProducts({required this.page});
+  const FetchProducts({
+    required this.page,
+    required this.isInitial,
+  });
 
   @override
-  List<Object?> get props => [page];
+  List<Object?> get props => [
+    page,
+    isInitial,
+  ];
 }

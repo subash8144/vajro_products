@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:products/core/api/api_service.dart';
 import 'package:products/core/exception/app_exceptions.dart';
 import 'package:products/features/login/domain/entities/login_entity.dart';
 import 'package:products/features/login/domain/repositories/login_repository.dart';

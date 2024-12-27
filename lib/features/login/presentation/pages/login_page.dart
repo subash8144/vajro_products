@@ -9,12 +9,21 @@ import '../widgets/profile_picture_widget.dart';
 import 'package:auto_route/auto_route.dart';
 
 @RoutePage()
-class LoginPage extends StatelessWidget {
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-  final _formKey = GlobalKey<FormState>();
+class LoginPage extends StatefulWidget {
 
   LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final _emailController = TextEditingController();
+
+  final _passwordController = TextEditingController();
+
+  final _formKey = GlobalKey<FormState>();
+  bool _obscure = true;
 
   @override
   Widget build(BuildContext context) {
@@ -51,16 +60,30 @@ class LoginPage extends StatelessWidget {
                               controller: _emailController,
                               decoration: const InputDecoration(
                                 labelText: 'Email',
+                                suffixIcon: Icon(
+                                  Icons.email_outlined,
+                                ),
                               ),
                               validator: Validators.emailValidator,
                             ),
                             TextFormField(
                               controller: _passwordController,
-                              obscureText: true,
-                              decoration: const InputDecoration(
+                              obscureText: _obscure,
+                              decoration: InputDecoration(
                                 labelText: 'Password',
+                                suffixIcon: IconButton(
+                                  icon: Icon(
+                                    _obscure ? Icons.visibility_off_outlined : Icons.visibility_outlined,
+                                  ),
+                                  onPressed: () {
+                                    setState(() {
+                                      _obscure = !_obscure; // Toggle obscureText state
+                                    });
+                                  },
+                                ),
                               ),
                               validator: Validators.passwordValidator,
+
                             ),
                             const SizedBox(height: 20),
                             ElevatedButton(

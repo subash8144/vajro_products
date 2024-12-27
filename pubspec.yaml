@@ -46,6 +46,8 @@ dependencies:
   internet_connection_checker:
   permission_handler:
   path_provider:
+  flutter_html: ^3.0.0-beta.2
+  webview_flutter: ^4.0.1
 
 dev_dependencies:
   flutter_test:
